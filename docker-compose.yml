@@ -56,9 +56,13 @@ grafana:
 
 fullerite:
     image: qnib/fullerite
+    hostname: fullerite
     dns: 127.0.0.1
     links:
      - consul:consul
+    environment:
+     - BOOTSTRAP_CONSUL=false
+     - RUN_SERVER=false
     volumes:
      - ./conf/:/etc/fullerite/
      - /var/run/docker.sock:/var/run/docker.sock:ro
