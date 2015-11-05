@@ -1,5 +1,5 @@
 # QNIBTerminal image
-FROM qnib/terminal
+FROM qnib/consul
 
 ENV GIT_BRANCH=dockerStats \
     GIT_URL=https://github.com/qnib/fullerite/archive
