@@ -1,8 +1,10 @@
 # QNIBTerminal image
 FROM qnib/consul
 
-ENV GIT_BRANCH=dockerStats \
-    GIT_URL=https://github.com/qnib/fullerite/archive
+#ENV GIT_BRANCH=dockerStats \
+#    GIT_URL=https://github.com/qnib/fullerite/archive
+ENV GIT_BRANCH=master \
+    GIT_URL=https://github.com/Yelp/fullerite/archive
 RUN \ 
     yum install -y bsdtar make golang git-core mercurial && \
     curl -fL ${GIT_URL}/${GIT_BRANCH}.zip  | bsdtar xf - -C /opt/ && \
