@@ -1,22 +1,10 @@
 # QNIBTerminal image
-FROM qnib/consul
+FROM qnib/alpn-consul
 
-#ENV GIT_BRANCH=dockerStats \
-#    GIT_URL=https://github.com/qnib/fullerite/archive
-ENV GIT_BRANCH=master \
-    GIT_URL=https://github.com/Yelp/fullerite/archive/ \
-    GOPATH=/usr/local/
-RUN pip install configobj mock
-RUN dnf install -y make golang git-core mercurial && \
-    go get golang.org/x/tools/cmd/cover && \
-    curl -fL ${GIT_URL}/${GIT_BRANCH}.zip  | bsdtar xf - -C /opt/ && \
-    mv /opt/fullerite-${GIT_BRANCH} /opt/fullerite && \
-    cd /opt/fullerite && \
-    make && \
-    mv /opt/fullerite/bin/fullerite /usr/local/bin/ && \
-    rm -rf /opt/fullerite
-RUN dnf remove -y make golang git-core mercurial bsdtar && \
-    dnf autoremove -y
+RUN wget -qO /usr/local/bin/go-github https://github.com/qnib/go-github/releases/download/0.2.2/go-github_0.2.2_Linux && \
+    chmod +x /usr/local/bin/go-github
+RUN wget -qO /usr/local/bin/fullerite $(/usr/local/bin/go-github rLatestUrl --ghorg ChristianKniep --ghrepo fullerite --regex "fullerite.*inux") && \
+    chmod +x /usr/local/bin/fullerite
 ADD conf/fullerite.conf /etc/fullerite/
 ADD opt/qnib/fullerite/start.sh /opt/qnib/fullerite/
 ADD etc/supervisord.d/fullerite.ini /etc/supervisord.d/
