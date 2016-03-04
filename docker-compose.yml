@@ -64,5 +64,4 @@ fullerite:
      - BOOTSTRAP_CONSUL=false
      - RUN_SERVER=false
     volumes:
-     - ./conf/:/etc/fullerite/
      - /var/run/docker.sock:/var/run/docker.sock:ro
