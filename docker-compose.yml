@@ -1,5 +1,6 @@
 consul:
     hostname: consul
+    container_name: consul
     image: qnib/consul
     environment:
      - DC_NAME=dc1
@@ -11,6 +12,7 @@ consul:
 
 carbon:
     hostname: carbon
+    container_name: carbon
     image: qnib/carbon
     dns: 127.0.0.1
     environment:
@@ -25,6 +27,7 @@ carbon:
 
 gapi:
     hostname: graphite-api
+    container_name: graphite-api
     dns: 127.0.0.1
     image: qnib/graphite-api
     environment:
@@ -43,6 +46,7 @@ gapi:
 
 grafana:
     image: qnib/grafana
+    container_name: grafana
     hostname: grafana
     ports:
     - "8180:80"
@@ -56,6 +60,7 @@ grafana:
 
 fullerite:
     image: qnib/fullerite
+    container_name: fullerite
     hostname: fullerite
     dns: 127.0.0.1
     links:
@@ -64,4 +69,5 @@ fullerite:
      - BOOTSTRAP_CONSUL=false
      - RUN_SERVER=false
     volumes:
+     - /Users/ckniep/src/github.com/ChristianKniep/fullerite/:/fullerite/
      - /var/run/docker.sock:/var/run/docker.sock:ro
