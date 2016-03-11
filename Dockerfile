@@ -2,7 +2,8 @@
 FROM qnib/alpn-consul
 
 ENV FULLERITE_GRAPHITE_INTERVAL=4 \
-    FULLERITE_INTERVAL=4
+    FULLERITE_INTERVAL=4 \
+    FULLERITE_HOSTNAME=dockerhost
 RUN apk update && \
     apk add nmap bc jq
 RUN wget -qO /usr/local/bin/go-github https://github.com/qnib/go-github/releases/download/0.2.2/go-github_0.2.2_Linux && \

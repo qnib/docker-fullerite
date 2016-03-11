@@ -68,6 +68,7 @@ fullerite:
     environment:
      - BOOTSTRAP_CONSUL=false
      - RUN_SERVER=false
+     - FULLERITE_HOSTNAME=boot2docker
     volumes:
      - /Users/ckniep/src/github.com/ChristianKniep/fullerite/:/fullerite/
      - /var/run/docker.sock:/var/run/docker.sock:ro
