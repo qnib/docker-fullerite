@@ -1,5 +1,5 @@
 {
-    "prefix": "fullerite.{{ env "FULLERITE_HOSTNAME" }}.",
+    "prefix": "{{ env "FULLERITE_PREFIX" }}.",
     "interval": {{ env "FULLERITE_INTERVAL" }},
     "fulleritePort": 19191,
     "internalServer": {"port":"29090","path":"/metrics"},
