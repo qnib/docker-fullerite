@@ -6,7 +6,7 @@ ENV FULLERITE_GRAPHITE_INTERVAL=4 \
 RUN apk add --update nmap bc jq \
  && wget -qO /usr/local/bin/go-github https://github.com/qnib/go-github/releases/download/0.2.2/go-github_0.2.2_Linux \
  && chmod +x /usr/local/bin/go-github \
- && wget -qO /usr/local/bin/fullerite $(/usr/local/bin/go-github rLatestUrl --ghorg ChristianKniep --ghrepo fullerite --regex "fullerite.*inux") \
+ && wget -qO /usr/local/bin/fullerite $(/usr/local/bin/go-github rLatestUrl --ghorg ChristianKniep --ghrepo fullerite --limit 1 --regex "fullerite.*inuxMusl$") \
  && chmod +x /usr/local/bin/fullerite \
  && rm -rf /var/cache/apk/* /usr/local/bin/go-github 
 ADD etc/consul-templates/fullerite/fullerite.conf.ctmpl /etc/consul-templates/fullerite/
