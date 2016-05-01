@@ -69,5 +69,6 @@ fullerite:
      - BOOTSTRAP_CONSUL=false
      - RUN_SERVER=false
     volumes:
-     - /Users/ckniep/src/github.com/ChristianKniep/fullerite/:/fullerite/
+     - /Users/kniepbert/src/github.com/ChristianKniep/fullerite.bkp/:/fullerite/
+     - ./bin/:/fullbin/
      - /var/run/docker.sock:/var/run/docker.sock:ro
