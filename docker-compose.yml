@@ -1,7 +1,7 @@
 consul:
     hostname: consul
     container_name: consul
-    image: qnib/consul
+    image: qnib/alpn-consul
     environment:
      - DC_NAME=dc1
      - BOOTSTRAP_CONSUL=true
@@ -70,5 +70,6 @@ fullerite:
      - RUN_SERVER=false
      - FULLERITE_HOSTNAME=boot2docker
     volumes:
-     - /Users/ckniep/src/github.com/ChristianKniep/fullerite/:/fullerite/
+     - /Users/kniepbert/src/github.com/ChristianKniep/fullerite.bkp/:/fullerite/
+     - ./bin/:/fullbin/
      - /var/run/docker.sock:/var/run/docker.sock:ro
