@@ -16,7 +16,8 @@
             "port": "2003",
             "interval": "{{ env "FULLERITE_GRAPHITE_INTERVAL" }}",
             "max_buffer_size": 300,
-            "timeout": 2
+            "timeout": 2,
+            "prefixKeys": {{ env "FULLERITE_GRAPHITE_PREFIX_KEYS" }}
         }
     }
 }
